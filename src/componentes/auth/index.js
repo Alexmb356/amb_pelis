@@ -1,0 +1,6 @@
+export * from './Admin'
+export * from './LogIns'
+export * from './Mostrar'
+export * from './Registrarse'
+export * from './Alert'
+export * from './Editar'
