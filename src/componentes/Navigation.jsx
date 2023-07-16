@@ -3,6 +3,7 @@ import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { MovieContext } from '../context/MovieContext';
 import firebaseApp from "../firebaseConfig/firebase";
 import { getAuth, signOut } from "firebase/auth";
+//import LogIns from './auth/LogIns';
 const auth = getAuth(firebaseApp);
 
 
@@ -23,6 +24,13 @@ function Navigation ({user}) {
 
 		onResetForm();
 	};
+
+	function iniciarSesion () {
+		navigate("/Login");
+		signOut(auth);
+		
+	
+	  } 
 
 	function cerrarSesion () {
 		navigate("/");
@@ -87,7 +95,7 @@ function Navigation ({user}) {
 				<div className='container-sesion col-md-4'>
 							<h1 className="text-right px-3 mb-3 h5">
 								{user === null ? (
-									<a href="/Login">Iniciar Sesion</a>
+									<button className="logout-button text-white" onClick={iniciarSesion}>Iniciar sesión</button>
 								) : (
 									<>
 									<a href={`/perfil/${user.uid}`}  className='m-5'>{user.nombre}</a>
