@@ -39,6 +39,13 @@ function Navigation ({user}) {
 	
 	  } 
 
+	  function perfil () {
+		navigate(`/perfil/${user.uid}`);
+		signOut(auth);
+		
+	
+	  } 
+
 
 	  
 
@@ -98,7 +105,8 @@ function Navigation ({user}) {
 									<button className="logout-button text-white" onClick={iniciarSesion}>Iniciar sesión</button>
 								) : (
 									<>
-									<a href={`/perfil/${user.uid}`}  className='m-5'>{user.nombre}</a>
+									<button className="perfil-button text-white mr-5 " onClick={perfil}>{user.nombre}</button>
+									{/*<a href={`/perfil/${user.uid}`}  className='m-5'>{user.nombre}</a>*/}
 									<button className="logout-button text-white" onClick={cerrarSesion}>Cerrar sesión</button>
 									</>
 								)}
